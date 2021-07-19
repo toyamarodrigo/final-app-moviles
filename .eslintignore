@@ -1,0 +1,7 @@
+node_modules/
+.expo-shared/
+babel.config.js
+coverage/
+.idea/
+.vscode/
+build/
