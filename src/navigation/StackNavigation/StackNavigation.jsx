@@ -2,7 +2,8 @@ import React from "react";
 import { IconButton } from "react-native-paper";
 import { createStackNavigator } from "@react-navigation/stack";
 
-import { Home, Favorite } from "../../screens/Home";
+import { Home } from "../../screens/Home";
+import { Favorite } from "../../screens/Favorite";
 
 const Stack = createStackNavigator();
 
