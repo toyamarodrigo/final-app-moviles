@@ -1,7 +1,7 @@
 
 # ![https://rt-pokemonapp.netlify.app/static/media/pokemon-logo.6e223bd2.png](https://rt-pokemonapp.netlify.app/static/media/pokemon-logo.6e223bd2.png)
 
-Expo React Native Application - Final exam for Movile Applications
+Expo React Native Application - Final exam for Mobile Applications
 
 Tech used:
 
