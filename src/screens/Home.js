@@ -1,21 +1,52 @@
 import React, { useState } from "react";
-import { Input, Button, Stack, Center, Heading, Image } from "native-base";
+import { Input, Button, Stack, Center, Heading, Image, useToast } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getPokemon } from "../actions/pokemon.actions";
 import { BasicLayout } from "../layout";
+import { FETCH_POKEMON_ERROR } from "../utils/constants";
 
 export const Home = ({ navigation }) => {
-  const [searchPokemon, setSearchPokemon] = useState("");
+  const [searchPokemon, setSearchPokemon] = useState(null);
+  const toast = useToast();
   const dispatch = useDispatch();
   const pokemon = useSelector((state) => state.pokemon);
 
   const handleRandomClick = async () => {
     const randomPokemon = Math.floor(Math.random() * 898) + 1;
+    const response = await dispatch(getPokemon(randomPokemon));
 
-    await dispatch(getPokemon(randomPokemon));
+    if (response.type === FETCH_POKEMON_SUCCESS) {
+      navigation.navigate("details", { pokemon });
+    } else {
+      toast.show({
+        title: "Error finding Pokemon",
+        description: "Please try again",
+        placement: "bottom",
+        status: "error",
+      });
+    }
+    setSearchPokemon(null);
+  };
 
-    navigation.navigate("details", { pokemon });
+  const handleSearchPokemon = async () => {
+    if (!searchPokemon || searchPokemon === "0") {
+      handleRandomClick();
+    } else {
+      const response = await dispatch(getPokemon(searchPokemon));
+
+      if (response.type === FETCH_POKEMON_ERROR) {
+        toast.show({
+          title: "Pokemon not found",
+          description: "Try searching another pokemon",
+          placement: "bottom",
+          status: "error",
+        });
+      } else {
+        navigation.navigate("details", { pokemon });
+      }
+      setSearchPokemon(null);
+    }
   };
 
   if (pokemon.loading) return "Loading...";
@@ -39,11 +70,10 @@ export const Home = ({ navigation }) => {
             placeholder="Pokemon name"
             size="lg"
             type="text"
-            value={searchPokemon}
             variant="filled"
-            onChangeText={() => setSearchPokemon(searchPokemon)}
+            onChangeText={(searchPokemon) => setSearchPokemon(searchPokemon)}
           />
-          <Button bgColor="red.600" size="sm" w={"100%"}>
+          <Button bgColor="red.600" size="sm" w={"100%"} onPress={() => handleSearchPokemon()}>
             Search
           </Button>
           <Button size="sm" onPress={() => handleRandomClick()}>
