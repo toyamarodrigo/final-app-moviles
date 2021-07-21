@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { StyleSheet } from "react-native";
 import { Input, Button, Stack, Center, Heading, Image } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -55,5 +54,3 @@ export const Home = ({ navigation }) => {
     </BasicLayout>
   );
 };
-
-const styles = StyleSheet.create({});
