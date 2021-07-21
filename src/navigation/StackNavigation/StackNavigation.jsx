@@ -15,7 +15,7 @@ export const StackNavigation = ({ navigation }) => {
       case "details":
         return (
           <Pressable onPress={() => navigation.goBack()}>
-            <ArrowBackIcon ml={4} size="sm" />;
+            <ArrowBackIcon color={"white"} ml={4} size="sm" />
           </Pressable>
         );
 
@@ -69,7 +69,7 @@ export const StackNavigation = ({ navigation }) => {
             borderStyle: "none",
           },
           headerTintColor: "white",
-          headerLeft: () => buttonLeft("favorite"),
+          headerLeft: () => buttonLeft("details"),
         }}
       />
     </Stack.Navigator>
