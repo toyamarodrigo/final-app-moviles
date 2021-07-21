@@ -33,7 +33,7 @@ export const StackNavigation = ({ navigation }) => {
         component={Home}
         name="home"
         options={{
-          title: "Pokemon App",
+          title: "",
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: "rgb(220, 38, 38)",

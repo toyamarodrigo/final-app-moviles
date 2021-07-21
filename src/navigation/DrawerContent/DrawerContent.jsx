@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { DrawerContentScrollView } from "@react-navigation/drawer";
-import { Box, Text, VStack, Divider, Pressable, HStack, Icon } from "native-base";
-import { FontAwesome5 } from "@expo/vector-icons";
+import { Box, Text, VStack, Divider, Pressable, HStack, Image } from "native-base";
 
 export const DrawerContent = ({ navigation }) => {
   const [active, setActive] = useState("home");
@@ -23,14 +22,14 @@ export const DrawerContent = ({ navigation }) => {
         <VStack space={2}>
           <Pressable px={5} py={3} rounded="md" onPress={() => onChangeScreen("home")}>
             <HStack active={active === "home"} alignItems="center" space={7}>
-              <FontAwesome5 color="black" name="home" size={20} />
+              <Image size={8} source={require("../../assets/pokeball.png")} />
               <Text fontWeight={500}>Home</Text>
             </HStack>
           </Pressable>
 
           <Pressable px={5} py={3} rounded="md" onPress={() => onChangeScreen("favorite")}>
             <HStack active={active === "home"} alignItems="center" space={7}>
-              <FontAwesome5 color="black" name="star" size={20} />
+              <Image size={8} source={require("../../assets/pokestar.png")} />
               <Text fontWeight={500}>Favorite</Text>
             </HStack>
           </Pressable>
