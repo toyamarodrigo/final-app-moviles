@@ -7,11 +7,11 @@ import {
 const pokemonReducer = (state = {}, action) => {
   switch (action.type) {
     case FETCH_POKEMON_REQUEST:
-      return { ...state };
+      return { ...state, error: false, loading: true };
     case FETCH_POKEMON_SUCCESS:
-      return { ...state };
+      return { ...state, currentPokemon: action.payload, error: false, loading: false };
     case FETCH_POKEMON_ERROR:
-      return { ...state };
+      return { ...state, error: true, loading: false };
     default:
       return state;
   }

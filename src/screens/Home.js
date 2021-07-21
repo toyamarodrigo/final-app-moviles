@@ -1,11 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import { Input, Button, Stack, Center, Heading, Image } from "native-base";
+import { useDispatch, useSelector } from "react-redux";
 
+import { getPokemon } from "../actions/pokemon.actions";
 import { BasicLayout } from "../layout";
 
-export const Home = () => {
-  const [pokemon, setPokemon] = React.useState("");
+export const Home = ({ navigation }) => {
+  const [searchPokemon, setSearchPokemon] = useState("");
+  const dispatch = useDispatch();
+  const pokemon = useSelector((state) => state.pokemon);
+
+  const handleRandomClick = async () => {
+    const randomPokemon = Math.floor(Math.random() * 898) + 1;
+
+    await dispatch(getPokemon(randomPokemon));
+
+    navigation.navigate("details", { pokemon });
+  };
+
+  if (pokemon.loading) return "Loading...";
 
   return (
     <BasicLayout>
@@ -25,14 +39,17 @@ export const Home = () => {
           <Input
             placeholder="Pokemon name"
             size="lg"
-            value={pokemon}
+            type="text"
+            value={searchPokemon}
             variant="filled"
-            onChangeText={(pokemon) => setPokemon(pokemon)}
+            onChangeText={() => setSearchPokemon(searchPokemon)}
           />
           <Button bgColor="red.600" size="sm" w={"100%"}>
             Search
           </Button>
-          <Button size="sm">Random</Button>
+          <Button size="sm" onPress={() => handleRandomClick()}>
+            Random
+          </Button>
         </Stack>
       </Stack>
     </BasicLayout>

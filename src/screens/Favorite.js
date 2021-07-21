@@ -1,10 +1,14 @@
+import { Center, Stack } from "native-base";
 import React from "react";
-import { View, Text } from "react-native";
+
+import { BasicLayout } from "../layout";
 
 export const Favorite = () => {
   return (
-    <View>
-      <Text>FAVORITE SCREEN</Text>
-    </View>
+    <BasicLayout>
+      <Stack safeArea space={4} w={"100%"}>
+        <Center>POKEMON CARD</Center>
+      </Stack>
+    </BasicLayout>
   );
 };

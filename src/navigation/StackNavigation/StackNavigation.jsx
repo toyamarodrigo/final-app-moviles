@@ -5,6 +5,7 @@ import { Pressable } from "react-native";
 
 import { Home } from "../../screens/Home";
 import { Favorite } from "../../screens/Favorite";
+import { Details } from "../../screens/Details";
 
 const Stack = createStackNavigator();
 
@@ -48,6 +49,20 @@ export const StackNavigation = ({ navigation }) => {
         name="favorite"
         options={{
           title: "Favorites Pokemon",
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "rgb(220, 38, 38)",
+            borderStyle: "none",
+          },
+          headerTintColor: "white",
+          headerLeft: () => buttonLeft("favorite"),
+        }}
+      />
+      <Stack.Screen
+        component={Details}
+        name="details"
+        options={{
+          title: "",
           headerTitleAlign: "center",
           headerStyle: {
             backgroundColor: "rgb(220, 38, 38)",
