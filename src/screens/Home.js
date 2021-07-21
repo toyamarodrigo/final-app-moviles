@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { getPokemon } from "../actions/pokemon.actions";
 import { BasicLayout } from "../layout";
-import { FETCH_POKEMON_ERROR } from "../utils/constants";
+import { FETCH_POKEMON_ERROR, FETCH_POKEMON_SUCCESS } from "../utils/constants";
 
 export const Home = ({ navigation }) => {
   const [searchPokemon, setSearchPokemon] = useState(null);
