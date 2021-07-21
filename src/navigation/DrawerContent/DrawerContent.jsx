@@ -14,7 +14,7 @@ export const DrawerContent = ({ navigation }) => {
   return (
     <DrawerContentScrollView safeArea>
       <VStack mx={1} my={2} space={6}>
-        <Box px={4}>
+        <Box pt={4} px={4}>
           <Text bold color="gray.600">
             Menu
           </Text>

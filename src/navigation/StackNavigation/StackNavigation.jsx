@@ -21,7 +21,7 @@ export const StackNavigation = ({ navigation }) => {
       default:
         return (
           <Pressable onPress={() => navigation.openDrawer()}>
-            <HamburgerIcon ml={4} size="sm" />
+            <HamburgerIcon color={"white"} ml={4} size="sm" />
           </Pressable>
         );
     }
@@ -35,6 +35,11 @@ export const StackNavigation = ({ navigation }) => {
         options={{
           title: "Pokemon App",
           headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "rgb(220, 38, 38)",
+            borderStyle: "none",
+          },
+          headerTintColor: "white",
           headerLeft: () => buttonLeft("home"),
         }}
       />
@@ -42,7 +47,13 @@ export const StackNavigation = ({ navigation }) => {
         component={Favorite}
         name="favorite"
         options={{
-          title: "Favorite Screen",
+          title: "Favorites Pokemon",
+          headerTitleAlign: "center",
+          headerStyle: {
+            backgroundColor: "rgb(220, 38, 38)",
+            borderStyle: "none",
+          },
+          headerTintColor: "white",
           headerLeft: () => buttonLeft("favorite"),
         }}
       />
