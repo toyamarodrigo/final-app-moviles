@@ -1,6 +1,7 @@
 import React from "react";
-import { IconButton } from "react-native-paper";
+import { ArrowBackIcon, HamburgerIcon } from "native-base";
 import { createStackNavigator } from "@react-navigation/stack";
+import { Pressable } from "react-native";
 
 import { Home } from "../../screens/Home";
 import { Favorite } from "../../screens/Favorite";
@@ -10,11 +11,19 @@ const Stack = createStackNavigator();
 export const StackNavigation = ({ navigation }) => {
   const buttonLeft = (screen) => {
     switch (screen) {
-      case "favorite":
       case "details":
-        return <IconButton icon="arrow-left" onPress={() => navigation.goBack()} />;
+        return (
+          <Pressable onPress={() => navigation.goBack()}>
+            <ArrowBackIcon ml={4} size="sm" />;
+          </Pressable>
+        );
+
       default:
-        return <IconButton icon="menu" onPress={() => navigation.openDrawer()} />;
+        return (
+          <Pressable onPress={() => navigation.openDrawer()}>
+            <HamburgerIcon ml={4} size="sm" />
+          </Pressable>
+        );
     }
   };
 
@@ -24,7 +33,8 @@ export const StackNavigation = ({ navigation }) => {
         component={Home}
         name="home"
         options={{
-          title: "Home Screen",
+          title: "Pokemon App",
+          headerTitleAlign: "center",
           headerLeft: () => buttonLeft("home"),
         }}
       />
