@@ -5,9 +5,13 @@ import { useSelector } from "react-redux";
 import { BasicLayout } from "../layout";
 
 export const Favorite = () => {
-  const favPokemon = useSelector((state) => state.favorites);
+  const { favoritePokemons } = useSelector((state) => state.favorites);
 
-  console.log(favPokemon);
+  console.log(favoritePokemons);
+
+  // TODO: useEffect to get Favorites from localStorage
+  // TODO: Show favorites pokemon data
+  // TODO: Handle not having favorites
 
   return (
     <BasicLayout>

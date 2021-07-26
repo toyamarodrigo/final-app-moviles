@@ -12,15 +12,18 @@ export const Details = () => {
   console.log("pokemon :>> ", pokemon);
 
   const handleAddFavorites = (pokemonId) => {
+    // TODO: Handle not adding same pokemon again
     dispatch(addFavorite(pokemonId));
 
-    console.log("handleAddFavorites end");
+    console.log("handleAddFavorites add");
   };
 
   const handleRemoveFavorites = (pokemonId) => {
     dispatch(removeFavorite(pokemonId));
-    console.log(`pokemonId`, pokemonId);
+    console.log(`handleRemoveFavorites end`);
   };
+
+  // TODO: useEffect to get Favorites from localStorage and display data
 
   return (
     <BasicLayout>
