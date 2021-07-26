@@ -1,17 +1,17 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
-import { createStore, applyMiddleware, combineReducers, compose } from "redux";
+import { createStore, applyMiddleware } from "redux";
 import { composeWithDevTools } from "redux-devtools-extension/developmentOnly";
 import thunk from "redux-thunk";
 
 import rootReducer from "./reducers";
 
-async function saveToAsyncStorage(state) {
+async function savePokemonToAsyncStorage(state) {
   const serializedState = JSON.stringify(state);
 
   await AsyncStorage.setItem("pokemon", serializedState);
 }
 
-async function loadFromAsyncStorage() {
+async function loadPokemonFromAsyncStorage() {
   const serializedState = await AsyncStorage.getItem("pokemon");
 
   return serializedState ? JSON.parse(serializedState) : {};
@@ -19,10 +19,10 @@ async function loadFromAsyncStorage() {
 
 const store = createStore(
   rootReducer,
-  loadFromAsyncStorage(),
+  loadPokemonFromAsyncStorage(),
   composeWithDevTools(applyMiddleware(thunk)),
 );
 
-store.subscribe(() => saveToAsyncStorage(store.getState()));
+store.subscribe(() => savePokemonToAsyncStorage(store.getState()));
 
 export default store;
