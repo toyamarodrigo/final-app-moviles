@@ -1,5 +1,5 @@
-import { Center, Stack } from "native-base";
 import React from "react";
+import { Center, Stack, Text } from "native-base";
 import { useSelector } from "react-redux";
 
 import { BasicLayout } from "../layout";
@@ -17,6 +17,9 @@ export const Favorite = () => {
     <BasicLayout>
       <Stack safeArea space={4} w={"100%"}>
         <Center>POKEMON CARD</Center>
+        {favoritePokemons.map((pokemonList) => (
+          <Text key={pokemonList.fav_pokemon.id}>{pokemonList.fav_pokemon.name}</Text>
+        ))}
       </Stack>
     </BasicLayout>
   );
