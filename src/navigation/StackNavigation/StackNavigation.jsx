@@ -3,9 +3,7 @@ import { ArrowBackIcon, HamburgerIcon } from "native-base";
 import { createStackNavigator } from "@react-navigation/stack";
 import { Pressable } from "react-native";
 
-import { Home } from "../../screens/Home";
-import { Favorite } from "../../screens/Favorite";
-import { Details } from "../../screens/Details";
+import { Home, Details, Favorite } from "../../screens";
 
 const Stack = createStackNavigator();
 

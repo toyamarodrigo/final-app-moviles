@@ -17,7 +17,7 @@ export const Home = ({ navigation }) => {
     const response = await dispatch(getPokemon(randomPokemon));
 
     if (response.type === FETCH_POKEMON_SUCCESS) {
-      navigation.navigate("details", { pokemon });
+      navigation.navigate("details");
     } else {
       toast.show({
         title: "Error finding Pokemon",
