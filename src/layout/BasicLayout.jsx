@@ -4,7 +4,11 @@ import { ImageBackground, StyleSheet, Text, View } from "react-native";
 export const BasicLayout = ({ children }) => {
   return (
     <View style={styles.container}>
-      <ImageBackground source={require("../assets/pokemon-background.png")} style={styles.image}>
+      <ImageBackground
+        alt="Pokemon background app"
+        source={require("../assets/pokemon-background.png")}
+        style={styles.image}
+      >
         {children}
       </ImageBackground>
     </View>

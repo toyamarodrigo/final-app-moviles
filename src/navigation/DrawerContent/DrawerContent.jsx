@@ -22,14 +22,14 @@ export const DrawerContent = ({ navigation }) => {
         <VStack space={2}>
           <Pressable px={5} py={3} rounded="md" onPress={() => onChangeScreen("home")}>
             <HStack active={active === "home"} alignItems="center" space={7}>
-              <Image size={8} source={require("../../assets/pokeball.png")} />
+              <Image alt="Home icon" size={8} source={require("../../assets/pokeball.png")} />
               <Text fontWeight={500}>Home</Text>
             </HStack>
           </Pressable>
 
           <Pressable px={5} py={3} rounded="md" onPress={() => onChangeScreen("favorite")}>
             <HStack active={active === "home"} alignItems="center" space={7}>
-              <Image size={8} source={require("../../assets/pokestar.png")} />
+              <Image alt="Favorite icon" size={8} source={require("../../assets/pokestar.png")} />
               <Text fontWeight={500}>Favorite</Text>
             </HStack>
           </Pressable>

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Input, Button, Stack, Center, Heading, Image, useToast } from "native-base";
+import { Input, Button, Stack, Center, Heading, Image, useToast, Text } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
 
 import { getPokemon } from "../actions/pokemon.actions";
@@ -49,7 +49,7 @@ export const Home = ({ navigation }) => {
     }
   };
 
-  if (pokemon.loading) return "Loading...";
+  if (pokemon.loading) return <Text>Loading...</Text>;
 
   return (
     <BasicLayout>
@@ -57,6 +57,7 @@ export const Home = ({ navigation }) => {
         <Center>
           <Heading>
             <Image
+              alt="Pokemon logo"
               h={120}
               resizeMode={"contain"}
               source={require("../assets/pokemon-logo.png")}
