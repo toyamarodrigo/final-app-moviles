@@ -34,6 +34,7 @@ module.exports = {
         tabWidth: 2,
         semi: true,
         singleQuote: false,
+        jsxSingleQoute: true,
         bracketSpacing: true,
         arrowParens: "always",
         endOfLine: "auto",
