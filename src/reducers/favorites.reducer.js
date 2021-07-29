@@ -11,12 +11,15 @@ const InitialState = {
 
 const favoritesReducer = (state = InitialState, action) => {
   switch (action.type) {
-    case GET_FAVORITES_POKEMONS:
-      return { ...state, favoritesPokemons: action.payload, error: false, loading: true };
+    // case GET_FAVORITES_POKEMONS:
+    //   return { ...state, favoritesPokemons: action.payload.favorites, error: false, loading: true };
     case ADD_FAVORITE_POKEMON:
       return {
         ...state,
-        favoritePokemons: [...state.favoritePokemons, { fav_pokemon: action.payload }],
+        favoritePokemons: [
+          ...state.favoritePokemons,
+          { fav_pokemon: action.payload, isFavorite: true },
+        ],
         error: false,
         loading: false,
       };
@@ -26,7 +29,6 @@ const favoritesReducer = (state = InitialState, action) => {
         favoritePokemons: state.favoritePokemons.filter(
           (pokemon) => pokemon.fav_pokemon.id !== action.payload,
         ),
-
         error: false,
         loading: true,
       };

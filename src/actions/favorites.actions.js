@@ -1,3 +1,5 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
+
 import {
   BASE_URL,
   GET_FAVORITES_POKEMONS,
@@ -6,17 +8,15 @@ import {
   ERROR_FAVORITE_POKEMON,
 } from "../utils/constants";
 
-const getFavorites = (pokemon) => async (dispatch) => {
-  try {
-    // const response = await fetch(`${BASE_URL}/${pokemon}/`);
-    // const data = await response.json();
-    // https://pokeapi.co/api/v2/pokemon/{id or name}/
+// const getFavorites = () => async (dispatch) => {
+//   try {
+//     const data = await AsyncStorage.getItem("pokemon");
 
-    return dispatch({ type: GET_FAVORITES_POKEMONS, payload: data });
-  } catch (error) {
-    return dispatch({ type: ERROR_FAVORITE_POKEMON, payload: data });
-  }
-};
+//     return dispatch({ type: GET_FAVORITES_POKEMONS, payload: data });
+//   } catch (error) {
+//     return dispatch({ type: ERROR_FAVORITE_POKEMON, payload: data });
+//   }
+// };
 
 const addFavorite = (pokemonId) => async (dispatch) => {
   try {
@@ -37,4 +37,4 @@ const removeFavorite = (pokemonId) => async (dispatch) => {
   }
 };
 
-export { getFavorites, addFavorite, removeFavorite };
+export { addFavorite, removeFavorite };
