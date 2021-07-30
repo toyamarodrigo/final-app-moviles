@@ -74,10 +74,10 @@ export const Home = ({ navigation }) => {
             variant="filled"
             onChangeText={(searchPokemon) => setSearchPokemon(searchPokemon)}
           />
-          <Button bgColor="red.600" size="sm" w={"100%"} onPress={() => handleSearchPokemon()}>
+          <Button bgColor="red.600" size="md" w={"100%"} onPress={() => handleSearchPokemon()}>
             Search
           </Button>
-          <Button size="sm" onPress={() => handleRandomClick()}>
+          <Button size="md" onPress={() => handleRandomClick()}>
             Random
           </Button>
         </Stack>

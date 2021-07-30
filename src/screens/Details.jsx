@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { FontAwesome } from "@expo/vector-icons";
 
 import { addFavorite, removeFavorite } from "../actions/favorites.actions";
+import { PokeCard } from "../components";
 import { BasicLayout } from "../layout";
 
 export const Details = () => {
@@ -35,7 +36,7 @@ export const Details = () => {
     <BasicLayout>
       <Stack safeArea alignItems="center" justifyContent="center" space={4} w={"100%"}>
         <Center>POKEMON DETAIL</Center>
-        <Box
+        {/* <Box
           alignItems="center"
           backgroundColor="#fefefe"
           borderRadius={20}
@@ -57,7 +58,8 @@ export const Details = () => {
             name={favoriteButton ? "heart" : "heart-o"}
             onPress={() => handleFavorites(pokemon.currentPokemon.id)}
           />
-        </Box>
+        </Box> */}
+        <PokeCard />
       </Stack>
     </BasicLayout>
   );
