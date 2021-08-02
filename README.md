@@ -10,6 +10,7 @@ Tech used:
 * React Native
 * React Navigation
 * Redux
+* Native Base
 
 * API: <https://pokeapi.co/>
 

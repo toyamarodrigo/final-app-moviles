@@ -6,7 +6,7 @@ import { FontAwesome } from "@expo/vector-icons";
 
 import { addFavorite, removeFavorite } from "../../actions/favorites.actions";
 
-export const PokeCard = ({ currentPokemon, favoritePokemons }) => {
+export const PokeCardDetail = ({ currentPokemon, favoritePokemons }) => {
   const { favorites } = useSelector((state) => state);
   const [favoriteButton, setFavoriteButton] = useState(null);
   const dispatch = useDispatch();

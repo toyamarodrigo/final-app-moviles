@@ -10,7 +10,7 @@ export const Favorite = () => {
   console.log(favoritePokemons);
 
   // TODO: useEffect to get Favorites from localStorage
-  // TODO: Show favorites pokemon data
+  // TODO: Show favorites pokemon data with component PokeCardFavorite
   // TODO: Handle not having favorites
 
   return (
