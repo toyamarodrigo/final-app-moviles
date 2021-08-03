@@ -2,7 +2,7 @@ import React from "react";
 import { Stack } from "native-base";
 import { useSelector } from "react-redux";
 
-import { PokeCard } from "../components";
+import { PokeCardDetail } from "../components";
 import { BasicLayout } from "../layout";
 
 export const Details = () => {
@@ -11,7 +11,7 @@ export const Details = () => {
   return (
     <BasicLayout>
       <Stack safeArea alignItems="center" justifyContent="center" space={4} w={"100%"}>
-        <PokeCard currentPokemon={pokemon.currentPokemon} />
+        <PokeCardDetail currentPokemon={pokemon.currentPokemon} />
       </Stack>
     </BasicLayout>
   );
