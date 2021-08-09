@@ -72,7 +72,7 @@ export const Home = ({ navigation }) => {
             size="lg"
             type="text"
             variant="filled"
-            onChangeText={(searchPokemon) => setSearchPokemon(searchPokemon)}
+            onChangeText={(searchPokemon) => setSearchPokemon(searchPokemon.toLowerCase())}
           />
           <Button bgColor="red.600" size="md" w={"100%"} onPress={() => handleSearchPokemon()}>
             Search
