@@ -6,6 +6,8 @@
   <img src="https://i.imgur.com/3QtpCP6.png" alt="expo image" />
 </p>
 
+Expo: <https://expo.dev/@toyama.rodrigo/rn-pokemonapp>
+
 Tech used:
 
 * Expo
