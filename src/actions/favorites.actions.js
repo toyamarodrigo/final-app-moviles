@@ -1,22 +1,9 @@
-import AsyncStorage from "@react-native-async-storage/async-storage";
-
 import {
   BASE_URL,
-  GET_FAVORITES_POKEMONS,
   ADD_FAVORITE_POKEMON,
   REMOVE_FAVORITE_POKEMON,
   ERROR_FAVORITE_POKEMON,
 } from "../utils/constants";
-
-// const getFavorites = () => async (dispatch) => {
-//   try {
-//     const data = await AsyncStorage.getItem("pokemon");
-
-//     return dispatch({ type: GET_FAVORITES_POKEMONS, payload: data });
-//   } catch (error) {
-//     return dispatch({ type: ERROR_FAVORITE_POKEMON, payload: data });
-//   }
-// };
 
 const addFavorite = (pokemonId) => async (dispatch) => {
   try {

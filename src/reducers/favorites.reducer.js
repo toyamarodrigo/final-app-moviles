@@ -11,8 +11,6 @@ const InitialState = {
 
 const favoritesReducer = (state = InitialState, action) => {
   switch (action.type) {
-    // case GET_FAVORITES_POKEMONS:
-    //   return { ...state, favoritesPokemons: action.payload.favorites, error: false, loading: true };
     case ADD_FAVORITE_POKEMON:
       return {
         ...state,
