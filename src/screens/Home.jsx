@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Input, Button, Stack, Center, Heading, Image, useToast, Text } from "native-base";
+import { Input, Button, Stack, Center, Heading, Image, useToast } from "native-base";
 import { useDispatch, useSelector } from "react-redux";
 
+import { Loader } from "../components";
 import { getPokemon } from "../actions/pokemon.actions";
 import { BasicLayout } from "../layout";
 import { FETCH_POKEMON_ERROR, FETCH_POKEMON_SUCCESS } from "../utils/constants";
@@ -49,7 +50,7 @@ export const Home = ({ navigation }) => {
     }
   };
 
-  if (pokemon.loading) return <Text>Loading...</Text>;
+  if (pokemon.loading) return <Loader />;
 
   return (
     <BasicLayout>

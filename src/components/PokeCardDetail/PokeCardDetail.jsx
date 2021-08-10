@@ -6,7 +6,7 @@ import { FontAwesome } from "@expo/vector-icons";
 
 import { addFavorite, removeFavorite } from "../../actions/favorites.actions";
 
-export const PokeCardDetail = ({ currentPokemon, favoritePokemons }) => {
+export const PokeCardDetail = ({ currentPokemon }) => {
   const { favorites } = useSelector((state) => state);
   const [favoriteButton, setFavoriteButton] = useState(null);
   const dispatch = useDispatch();
@@ -100,7 +100,7 @@ export const PokeCardDetail = ({ currentPokemon, favoritePokemons }) => {
             </Stack>
           </Stack>
         </VStack>
-        <VStack backgroundColor="orange" borderBottomRadius={10} pb={6} space={2} w={"100%"}>
+        <VStack borderBottomRadius={10} pb={6} space={2} w={"100%"}>
           <HStack alignItems="center" my={4}>
             <HStack alignItems="center" justifyContent="center" space={8} w={"100%"}>
               <VStack space={2} w={"25%"}>
