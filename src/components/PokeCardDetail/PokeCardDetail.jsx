@@ -1,22 +1,56 @@
 import React, { useState, useEffect } from "react";
-import { Image, Text, Box, VStack, HStack, Stack, Button, Icon } from "native-base";
+import { Image, Text, Box, VStack, HStack, Stack, Button, Icon, useToast } from "native-base";
 import { StyleSheet } from "react-native";
 import { useDispatch, useSelector } from "react-redux";
 import { FontAwesome } from "@expo/vector-icons";
 
 import { addFavorite, removeFavorite } from "../../actions/favorites.actions";
+import { ADD_FAVORITE_POKEMON, REMOVE_FAVORITE_POKEMON } from "../../utils/constants";
 
 export const PokeCardDetail = ({ currentPokemon }) => {
   const { favorites } = useSelector((state) => state);
   const [favoriteButton, setFavoriteButton] = useState(null);
+  const toast = useToast();
   const dispatch = useDispatch();
 
-  const handleFavorites = (pokemonId) => {
+  const handleFavorites = async (pokemonId) => {
     setFavoriteButton(!favoriteButton);
     if (favoriteButton) {
-      dispatch(removeFavorite(pokemonId));
+      const response = await dispatch(removeFavorite(pokemonId));
+
+      if (response.type === REMOVE_FAVORITE_POKEMON) {
+        toast.show({
+          title: "Pokemon Removed successfuly",
+          description: "pokebye 👋",
+          placement: "bottom",
+          status: "success",
+        });
+      } else {
+        toast.show({
+          title: "Error Removing favorite",
+          description: "Try again another time 😢",
+          placement: "bottom",
+          status: "error",
+        });
+      }
     } else {
-      dispatch(addFavorite(pokemonId));
+      const response = await dispatch(addFavorite(pokemonId));
+
+      if (response.type === ADD_FAVORITE_POKEMON) {
+        toast.show({
+          title: "Pokemon Added successfuly",
+          description: "Go to favorites to see'em all 🤪",
+          placement: "bottom",
+          status: "success",
+        });
+      } else {
+        toast.show({
+          title: "Error Adding favorite",
+          description: "Try again another time 😢",
+          placement: "bottom",
+          status: "error",
+        });
+      }
     }
   };
 

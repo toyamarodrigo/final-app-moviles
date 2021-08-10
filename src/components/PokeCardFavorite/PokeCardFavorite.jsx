@@ -1,14 +1,16 @@
 import React from "react";
 import { StyleSheet } from "react-native";
 import { useDispatch } from "react-redux";
-import { Text, Box, Button, Center, Icon, Stack, VStack, Image } from "native-base";
+import { Text, Box, Button, Center, Icon, Stack, VStack, Image, useToast } from "native-base";
 import { FontAwesome } from "@expo/vector-icons";
 
 import { getPokemon } from "../../actions/pokemon.actions";
-import { FETCH_POKEMON_SUCCESS } from "../../utils/constants";
+import { removeFavorite } from "../../actions/favorites.actions";
+import { ERROR_FAVORITE_POKEMON, FETCH_POKEMON_SUCCESS } from "../../utils/constants";
 
 export const PokeCardFavorite = ({ favoritePokemons, navigation }) => {
   const dispatch = useDispatch();
+  const toast = useToast();
 
   const handleNavigateToDestails = async (pokemonId) => {
     const response = await dispatch(getPokemon(pokemonId));
@@ -21,6 +23,26 @@ export const PokeCardFavorite = ({ favoritePokemons, navigation }) => {
         description: "Try again another time 😢",
         placement: "bottom",
         status: "error",
+      });
+    }
+  };
+
+  const handleRemoveFavorite = async (pokemonId) => {
+    const response = await dispatch(removeFavorite(pokemonId));
+
+    if (response.type === ERROR_FAVORITE_POKEMON) {
+      toast.show({
+        title: "Error Removing favorite",
+        description: "Try again another time 😢",
+        placement: "bottom",
+        status: "error",
+      });
+    } else {
+      toast.show({
+        title: "Pokemon removed successfuly",
+        description: "pokebye 👋",
+        placement: "bottom",
+        status: "success",
       });
     }
   };
@@ -43,7 +65,7 @@ export const PokeCardFavorite = ({ favoritePokemons, navigation }) => {
                 backgroundColor="#fff"
                 borderRadius="full"
                 size={10}
-                onPress={() => dispatch(removeFavorite(pokemonList.fav_pokemon.id))}
+                onPress={() => handleRemoveFavorite(pokemonList.fav_pokemon.id)}
               >
                 <Icon as={FontAwesome} color="red" name="heart" size="sm" />
               </Button>
