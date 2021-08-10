@@ -1,10 +1,11 @@
 {
   "expo": {
-    "name": "final-app-moviles",
-    "slug": "final-app-moviles",
+    "name": "rn-pokemonapp",
+    "slug": "rn-pokemonapp",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
+    "owner": "toyama.rodrigo",
     "splash": {
       "image": "./assets/splash.png",
       "resizeMode": "contain",
